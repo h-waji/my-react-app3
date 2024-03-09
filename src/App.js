@@ -1,3 +1,5 @@
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
+
 import { useState, useCallback, useMemo } from 'react';
 import './App.css';
 import { ChildArea } from './ChildArea';
@@ -6,6 +8,10 @@ import { CssModules } from './components/CssModules';
 import { StyledJsx } from './components/StyledJsx';
 import { StyledComponents } from './components/StyledComponents';
 import { Emotion } from './components/Emotion';
+
+import { Home } from './Home';
+import { Page1 } from './Page1';
+import { Page2 } from './Page2';
 
 export const App = () => {
   console.log("----- App -----");
@@ -24,6 +30,29 @@ export const App = () => {
 
   return (
     <div>
+      <BrowserRouter>
+        <h1>React Router</h1>
+        <Link to="/">Home</Link>
+        <br />
+        <Link to="/page1">Page1</Link>
+        <br />
+        <Link to="/page2">Page2</Link>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/page1">
+            <Page1 />
+          </Route>
+          <Route path="/page2">
+            <Page2 />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+      <br />
+      <br />
+      <br />
+      <h1>CSS</h1>
       <InlineStyle />
       <CssModules />
       <StyledJsx />
@@ -31,6 +60,7 @@ export const App = () => {
       <Emotion />
       <br />
       <br />
+      <h1>memo, useCallback</h1>
       <input value={text} onChange={onChangeText} />
       <br />
       <br />
