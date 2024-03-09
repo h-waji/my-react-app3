@@ -11,7 +11,7 @@ export const ChildArea = memo((props) => {
     console.log("----- ChildArea -----");
     const data = [...Array(3333).keys()];
     data.forEach((n, i) => {
-        console.log(n, i);
+        // console.log(n, i);
     });
 
     return (
